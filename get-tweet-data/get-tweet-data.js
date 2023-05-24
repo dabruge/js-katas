@@ -11,13 +11,17 @@ function getTweetData (tweet) {
   const tweetWords = tweet.split(" ")
 
   tweetWords.forEach(word => {
+    // Check for common punctuation and trim if necessary
+    if (/[!?.,:;]/.test(word[word.length - 1])) {
+      word = word.slice(0, -1)
+    }
     // Check for tags
-    if (word[0] === '#') {
+    if (word[0] === '#' && !output.tags.includes(word)) {
       output.tags.push(word)
       output.tagCount++
     }
     // Check for mentions
-    if (word[0] === '@') {
+    if (word[0] === '@' && !output.mentions.includes(word)) {
       output.mentions.push(word)
       output.mentionCount++
     }
