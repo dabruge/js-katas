@@ -5,15 +5,15 @@ describe('foldString()', () => {
         const str = ''
         expect(foldString(str)).toEqual('')
     });
-    test('when passed a single character', () => {
-        const str = 'a'
-        expect(foldString(str)).toEqual('a')
+    test('when passed words of three or less characters', () => {
+        const str1 = 'a'
+        const str2 = 'ab'
+        const str3 = 'abc'
+        expect(foldString(str1)).toEqual('a')
+        expect(foldString(str2)).toEqual('ab')
+        expect(foldString(str3)).toEqual('abc')
     });
-    test('when passed two character word', () => {
-        const str = 'ab'
-        expect(foldString(str)).toEqual('ab')
-    });
-    xtest('when passed a single word of even length', () => {
+    test('when passed a single word of even length', () => {
         const str1 = 'code'
         const str2 = 'javascript'
         expect(foldString(str1)).toEqual('oced')
@@ -27,8 +27,8 @@ describe('foldString()', () => {
     });
     xtest('when passed multiple words', () => {
         const str1 = 'javascript is cool'
-        const str2 = 'Northcoders'
+        const str2 = 'Hippo watermelon cat python'
         expect(foldString(str1)).toEqual('savajtpirc is oclo')
-        expect(foldString(str2)).toEqual('htroNcsredo')
+        expect(foldString(str2)).toEqual('iHpop retawnolem cat typnoh')
     });
 })
