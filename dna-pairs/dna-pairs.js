@@ -1,4 +1,4 @@
-// Please do not change the name of this function
+// Please do not change the name of this function + comment for commit
 function dnaPairs(dna) {
 
   if (dna.length === 0) return []
